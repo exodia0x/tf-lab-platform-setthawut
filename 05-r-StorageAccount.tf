@@ -24,6 +24,9 @@ resource "azurerm_storage_account" "sttestprovision" {
   routing {
     choice = "MicrosoftRouting"
   }
+  network_rules {
+    default_action = "Deny"
+  }
 
   // Blob Properties
   blob_properties {
@@ -34,9 +37,6 @@ resource "azurerm_storage_account" "sttestprovision" {
     container_delete_retention_policy {
       days = 7
     }
-  }
-  network_rules {
-    default_action = "Deny"
   }
 }
 
